@@ -1,5 +1,6 @@
 #include "TaskStatusTracker.h"
 #include <numeric>
+#include <algorithm>
 
 TaskStatusTracker::TaskStatusTracker(AppContext& appContext)
 	: appContext(appContext)

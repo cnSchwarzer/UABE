@@ -626,7 +626,7 @@ public:
 
 				//Contains the normals data without sign bit (the bit vectors are unsigned);
 				//The m_NormalSigns value has the sign bit of the third component, z.
-				//The length of the normal vector |v| = sqrt(x²+y²+z²) = 1²; z is not stored, so z = sqrt(1²-x²-y²).
+				//The length of the normal vector |v| = sqrt(xï¿½+yï¿½+zï¿½) = 1ï¿½; z is not stored, so z = sqrt(1ï¿½-xï¿½-yï¿½).
 				if (mesh.m_CompressedMesh.m_Normals.m_NumItems)
 					bitsPerVertex += mesh.m_CompressedMesh.m_Normals.m_BitSize *
 					(mesh.m_CompressedMesh.m_Normals.m_NumItems / totalVertexCount); //shuold be m_BitSize*2
@@ -805,7 +805,7 @@ public:
 							//always switch the winding
 							for (int i = 0; i < 3; i++)
 							{
-								std::format_to(std::back_inserter(formatTmp), faceFormat, triIndices[i], triIndices[i], triIndices[i]);
+								std::vformat_to(std::back_inserter(formatTmp), faceFormat, std::make_format_args(triIndices[i], triIndices[i], triIndices[i]));
 								_writerputs(formatTmp);
 								formatTmp.clear();
 							}
@@ -814,7 +814,7 @@ public:
 						{
 							for (int i = 2; i >= 0; i--)
 							{
-								std::format_to(std::back_inserter(formatTmp), faceFormat, triIndices[i], triIndices[i], triIndices[i]);
+								std::vformat_to(std::back_inserter(formatTmp), faceFormat, std::make_format_args(triIndices[i], triIndices[i], triIndices[i]));
 								_writerputs(formatTmp);
 								formatTmp.clear();
 							}
@@ -981,7 +981,7 @@ public:
 							//always switch the winding
 							for (int k = 0; k < 3; k++)
 							{
-								std::format_to(std::back_inserter(formatTmp), faceFormat, triIndices[k], triIndices[k], triIndices[k]);
+								std::vformat_to(std::back_inserter(formatTmp), faceFormat, std::make_format_args(triIndices[k], triIndices[k], triIndices[k]));
 								_writerputs(formatTmp);
 								formatTmp.clear();
 							}
@@ -990,7 +990,7 @@ public:
 						{
 							for (int k = 2; k >= 0; k--)
 							{
-								std::format_to(std::back_inserter(formatTmp), faceFormat, triIndices[k], triIndices[k], triIndices[k]);
+								std::vformat_to(std::back_inserter(formatTmp), faceFormat, std::make_format_args(triIndices[k], triIndices[k], triIndices[k]));
 								_writerputs(formatTmp);
 								formatTmp.clear();
 							}
