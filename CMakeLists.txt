@@ -32,3 +32,4 @@ add_subdirectory (UABE_Generic)
 add_subdirectory (UABE_Win32)
 add_subdirectory (Plugins)
 add_subdirectory (TexToolWrap)
+
